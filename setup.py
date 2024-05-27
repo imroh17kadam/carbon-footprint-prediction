@@ -1,4 +1,5 @@
 import setuptools
+from typing import List
 
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
@@ -10,6 +11,22 @@ REPO_NAME = "ml-mlops-workflow"
 AUTHOR_USER_NAME = "imroh17kadam"
 SRC_REPO = "mlworkflow"
 AUTHOR_EMAIL = "kadam17rohit@gmail.com"
+
+HYPHEN_E_DOT = '-e .'
+
+def get_requirements(file_path : str) -> List[str]:
+    '''
+    this function will return the list of requirements
+    '''
+    requirements = []
+    with open(file_path) as file_obj:
+        requirements = file_obj.readlines()
+        requirements = [req.replace("\n", "") for req in requirements]
+
+        if HYPHEN_E_DOT in requirements:
+            requirements.remove(HYPHEN_E_DOT)
+    
+    return requirements
 
 
 setuptools.setup(
@@ -25,5 +42,6 @@ setuptools.setup(
         "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",
     },
     package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src")
+    packages=setuptools.find_packages(where="src"),
+    # install_requires = get_requirements('requirements.txt')
 )
