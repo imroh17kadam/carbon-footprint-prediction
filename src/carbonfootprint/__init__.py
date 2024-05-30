@@ -18,4 +18,4 @@ logging.basicConfig(
     ]
 )
 
-logger = logging.getLogger("mlworkflowLogger")
+logger = logging.getLogger("carbonfootprintLogger")

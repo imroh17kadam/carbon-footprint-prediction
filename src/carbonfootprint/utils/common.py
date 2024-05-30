@@ -1,13 +1,14 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from mlProject import logger
+from carbonfootprint import logger
 import json
 import joblib
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
+from mongo_utils import connect_to_mongodb
 
 
 
@@ -121,3 +122,10 @@ def get_size(path: Path) -> str:
     """
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
+
+
+def fetch_data_from_mongodb(uri, db_name, collection_name):
+    db = connect_to_mongodb(uri, db_name)
+    collection = db[collection_name]
+    data = list(collection.find())
+    return data

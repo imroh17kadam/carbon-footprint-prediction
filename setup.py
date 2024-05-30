@@ -9,7 +9,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "ml-mlops-workflow"
 AUTHOR_USER_NAME = "imroh17kadam"
-SRC_REPO = "mlworkflow"
+SRC_REPO = "carbonfootprint"
 AUTHOR_EMAIL = "kadam17rohit@gmail.com"
 
 HYPHEN_E_DOT = '-e .'
