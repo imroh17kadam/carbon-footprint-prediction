@@ -8,7 +8,7 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
-from mongo_utils import connect_to_mongodb
+# from mongo_utils import connect_to_mongodb
 
 
 
@@ -29,11 +29,18 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     try:
         with open(path_to_yaml) as yaml_file:
             content = yaml.safe_load(yaml_file)
+
+            if content is None:
+                logger.error(f"YAML file {path_to_yaml} is empty")
+                raise ValueError("YAML file is empty")
+            
             logger.info(f"yaml file: {path_to_yaml} loaded successfully")
             return ConfigBox(content)
     except BoxValueError:
+        logger.error(f"YAML file {path_to_yaml} is empty or not a valid mapping")
         raise ValueError("yaml file is empty")
     except Exception as e:
+        logger.error(f"An error occurred while reading YAML file {path_to_yaml}: {e}")
         raise e
     
 
@@ -124,8 +131,8 @@ def get_size(path: Path) -> str:
     return f"~ {size_in_kb} KB"
 
 
-def fetch_data_from_mongodb(uri, db_name, collection_name):
-    db = connect_to_mongodb(uri, db_name)
-    collection = db[collection_name]
-    data = list(collection.find())
-    return data
+# def fetch_data_from_mongodb(uri, db_name, collection_name):
+#     db = connect_to_mongodb(uri, db_name)
+#     collection = db[collection_name]
+#     data = list(collection.find())
+#     return data

@@ -1,0 +1,17 @@
+COLUMNS:
+  Make: object 
+  Model: object 
+  Vehicle Class: object 
+  Engine Size(L): float64
+  Cylinders: int64  
+  Transmission: object 
+  Fuel Type: object 
+  Fuel Consumption City (L/100 km): float64
+  Fuel Consumption Hwy (L/100 km): float64
+  Fuel Consumption Comb (L/100 km): float64
+  Fuel Consumption Comb (mpg): int64 
+  CO2 Emissions(g/km): int64 
+
+
+TARGET_COLUMN:
+  name: CO2 Emissions(g/km)

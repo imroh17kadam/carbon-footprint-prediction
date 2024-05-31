@@ -13,7 +13,7 @@ from carbonfootprint import logger
 
 @dataclass
 class DataIngestionConfig:
-    raw_data_path: str = os.path.join('artifacts', 'ingestion', 'data.csv')
+    raw_data_path: str = os.path.join('artifacts', 'data_ingestion', 'data.csv')
 
 
 

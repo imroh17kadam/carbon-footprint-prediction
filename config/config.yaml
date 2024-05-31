@@ -1,12 +1,21 @@
 artifacts_root: artifacts
 
-mongodb:
-  uri: "mongodb://username:password@localhost:27017/"
-  db_name: "your_database"
-  collection_name: "your_collection"
+# mongodb:
+#   uri: "mongodb://username:password@localhost:27017/"
+#   db_name: "your_database"
+#   collection_name: "your_collection"
 
 data_ingestion:
-  root_dir: artifacts/data_ingestion
+  root_dir: c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_ingestion\\data.csv
   # source_URL: https://enter-dataset-url-here
-  local_data_file: artifacts/data_ingestion/data.zip
+  local_data_file: c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_ingestion\\data.csv
   unzip_dir: artifacts/data_ingestion
+
+data_validation:
+  root_dir: c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_validation
+  unzip_data_dir: c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_ingestion\\data.csv
+  STATUS_FILE: c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_validation\\status.txt
+
+data_transformation:
+  root_dir: c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_transformation
+  data_path: c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_ingestion\\data.csv
