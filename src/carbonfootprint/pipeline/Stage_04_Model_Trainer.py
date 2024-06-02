@@ -1,28 +1,30 @@
 from carbonfootprint.config.configuration import ConfigurationManager
-from carbonfootprint.components.Data_Validation import DataValidation
+from carbonfootprint.components.Model_Trainer import ModelTrainer
 from carbonfootprint import logger
+from pathlib import Path
 
 
-STAGE_NAME = "Data Validation stage"
 
-class DataValidationPipeline:
+STAGE_NAME = "Model Trainer stage"
+
+class ModelTrainerPipeline:
     def __init__(self):
         pass
 
-
-    def validation(self):
+    def trainer(self):
         config = ConfigurationManager()
-        data_validation_config = config.get_data_validation_config()
-        data_validation = DataValidation(config=data_validation_config)
-        data_validation.validate_all_columns()
+        model_trainer_config = config.get_model_trainer_config()
+        model_trainer_config = ModelTrainer(config=model_trainer_config)
+        model_trainer_config.train()
+
 
 
 
 if __name__ == '__main__':
     try:
         logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n")
-        pipeline = DataValidationPipeline()
-        pipeline.validation()
+        obj = ModelTrainerPipeline()
+        obj.trainer()
         logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n\n\nx==========x")
     except Exception as e:
         logger.exception(e)

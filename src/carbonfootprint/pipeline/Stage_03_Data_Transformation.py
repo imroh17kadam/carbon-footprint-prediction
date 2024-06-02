@@ -34,10 +34,10 @@ class DataTransformationPipeline:
 
 if __name__ == '__main__':
     try:
-        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+        logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n")
         obj = DataTransformationPipeline()
         obj.transformation()
-        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+        logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n\n\nx==========x")
     except Exception as e:
         logger.exception(e)
         raise e
