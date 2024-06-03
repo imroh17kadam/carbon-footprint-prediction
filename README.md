@@ -21,16 +21,16 @@
 Clone the repository
 
 ```bash
-https://github.com/entbappy/End-to-end-Machine-Learning-Project-with-MLflow
+https://github.com/imroh17kadam/ml-mlops-workflow
 ```
 ### STEP 01- Create a conda environment after opening the repository
 
 ```bash
-conda create -n mlproj python=3.8 -y
+conda create -n mlproj python=3.9 -y
 ```
 
 ```bash
-conda activate mlproj
+conda activate mlworkflow
 ```
 
 
@@ -79,6 +79,7 @@ export MLFLOW_TRACKING_USERNAME=kadam17rohit
 export MLFLOW_TRACKING_PASSWORD=1f88ed73b9a904fcce468864350fc9f1938100b1
 
 ```
+
 
 
 
