@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Web App</title>
+        <title>Prediction</title>
         <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -35,137 +35,19 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('static/assets/img/wine.jpg')">
+        <header class="masthead" style="background-image: url('static/assets/img/wine.gif')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Carbon Footprint Prediction</h1>
-                            <span class="subheading">A Fuel Emission checking Web App</span>
+                            <h1>Wine Quality</h1>
+                             <h1>{{prediction}}</h1>
+                            <span class="subheading"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-
-
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-
-           <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Form-v9 by Colorlib</title>
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!-- Font-->
-	<link rel="stylesheet" type="text/css" href="static/css2/nunito-font.css">
-	<!-- Main Style Css -->
-    <link rel="stylesheet" href="static/css2/style.css"/>
-</head>
-<body class="form-v9">
-	<div class="page-content">
-		<div class="form-v9-content" style="background-image: url('static/assets/img/form-v9.jpg')">
-			<form class="form-detail" action="/predict" method="post">
-				<h2>Please Fill The Information</h2>
-				<div class="form-row-total">
-
-					<div class="form-row">
-                        <label for="make"> Make:</label>
-						<input type="text" name="make" id="make" class="input-text" placeholder="make" required>
-					</div>
-
-					<div class="form-row">
-                        <label for="model"> Model:</label>
-						<input type="text" name="model" id="model" class="input-text" placeholder="model" required>
-					</div>
-
-				</div>
-
-
-				<div class="form-row-total">
-
-                    <div class="form-row">
-                        <label for="vehicle"> Vehicle:</label>
-						<input type="text" name="vehicle" id="vehicle" class="input-text" placeholder="vehicle" required>
-					</div>
-
-
-                    <div class="form-row">
-                        <label for="engine_size"> Engine Size:</label>
-						<input type="text" name="engine_size" id="engine_size" class="input-text" placeholder="engine_size" required>
-					</div>
-
-				</div>
-
-
-                <div class="form-row-total">
-
-                    <div class="form-row">
-                        <label for="cylinders"> Cylinders:</label>
-						<input type="text" name="cylinders" id="cylinders" class="input-text" placeholder="cylinders" required>
-					</div>
-
-                    <div class="form-row">
-                        <label for="transmission"> Transmission:</label>
-						<input type="text" name="transmission" id="transmission" class="input-text" placeholder="transmission" required>
-					</div>
-
-				</div>
-
-
-                <div class="form-row-total">
-
-                    <div class="form-row">
-                        <label for="fuel_type">Fuel Type:</label>
-						<input type="text" name="fuel_type" id="fuel_type" class="input-text" placeholder="fuel_type" required>
-					</div>
-
-                    <div class="form-row">
-                        <label for="fuel_consumption_city"> Fuel Consumption City:</label>
-						<input type="text" name="fuel_consumption_city" id="fuel_consumption_city" class="input-text" placeholder="fuel_consumption_city" required>
-					</div>
-
-				</div>
-
-
-                <div class="form-row-total">
-
-                    <div class="form-row">
-                        <label for="fuel_consumption_hwy"> Fuel Consumption Hwy:</label>
-						<input type="text" name="fuel_consumption_hwy" id="fuel_consumption_hwy" class="input-text" placeholder="fuel_consumption_hwy" required>
-					</div>
-
-                    <div class="form-row">
-                        <label for="fuel_consumption_comb_km"> Fuel Consumption Comb Km:</label>
-						<input type="text" name="fuel_consumption_comb_km" id="fuel_consumption_comb_km" class="input-text" placeholder="fuel_consumption_comb_km" required>
-					</div>
-
-				</div>
-
-
-                <div class="form-row-total">
-
-                    <div class="form-row">
-                        <label for="fuel_consumption_comb_mpg"> Fuel Consumption Comb Mpg:</label>
-						<input type="text" name="fuel_consumption_comb_mpg" id="fuel_consumption_comb_mpg" class="input-text" placeholder="fuel_consumption_comb_mpg" required>
-					</div>
-
-
-				</div>
-
-
-				<div class="form-row-last">
-					<input type="submit" name="register" class="register" value="Predict">
-				</div>
-			</form>
-		</div>
-	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
-
-        </div>
 
 
         <!-- Footer-->
