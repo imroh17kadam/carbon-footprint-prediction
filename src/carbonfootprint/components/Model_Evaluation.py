@@ -34,10 +34,8 @@ class ModelEvaluation:
         test_y = test_data[[self.config.target_column]]
 
 
-        # Code for integrating ML Flow
-
-        # mlflow.set_registry_uri(self.config.mlflow_uri)
-        # tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        mlflow.set_registry_uri(self.config.mlflow_uri)
+        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
 
         with mlflow.start_run():
@@ -50,22 +48,20 @@ class ModelEvaluation:
             scores = {"rmse": rmse, "mae": mae, "r2": r2}
             save_json(path=Path(self.config.metric_file_name), data=scores)
 
-        #     mlflow.log_params(self.config.all_params)
+            mlflow.log_params(self.config.all_params)
 
-        #     mlflow.log_metric("rmse", rmse)
-        #     mlflow.log_metric("r2", r2)
-        #     mlflow.log_metric("mae", mae)
+            mlflow.log_metric("rmse", rmse)
+            mlflow.log_metric("r2", r2)
+            mlflow.log_metric("mae", mae)
 
 
             # Model registry does not work with file store
-            # if tracking_url_type_store != "file":
+            if tracking_url_type_store != "file":
 
             #     # Register the model
             #     # There are other ways to use the Model Registry, which depends on the use case,
             #     # please refer to the doc for more information:
             #     # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-            #     mlflow.sklearn.log_model(model, "model", registered_model_name="ElasticnetModel")
-            # else:
-            #     mlflow.sklearn.log_model(model, "model")
-
-    
+                mlflow.sklearn.log_model(model, "model", registered_model_name="LinearRegressionModel")
+            else:
+                mlflow.sklearn.log_model(model, "model")

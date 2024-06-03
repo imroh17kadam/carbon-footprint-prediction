@@ -46,16 +46,16 @@ try:
    model_trainer.trainer()
    logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n")
 except Exception as e:
-        logger.exception(e)
-        raise e
+    logger.exception(e)
+    raise e
 
 
 STAGE_NAME = "Model evaluation stage"
 try:
    logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n") 
-   data_ingestion = ModelEvaluationPipeline()
-   data_ingestion.evaluation()
+   model_evaluation = ModelEvaluationPipeline()
+   model_evaluation.evaluation()
    logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n")
 except Exception as e:
-        logger.exception(e)
-        raise e
+    logger.exception(e)
+    raise e

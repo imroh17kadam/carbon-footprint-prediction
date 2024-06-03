@@ -83,11 +83,10 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             test_data_path=config.test_data_path,
             model_path = config.model_path,
-            # all_params=params,
+            all_params=params,
             metric_file_name = config.metric_file_name,
             target_column = schema.name,
-            # mlflow_uri="https://dagshub.com/entbappy/End-to-end-Machine-Learning-Project-with-MLflow.mlflow",
-           
+            mlflow_uri="https://dagshub.com/kadam17rohit/ml-mlops-workflow.mlflow",
         )
 
         return model_evaluation_config
