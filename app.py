@@ -19,38 +19,71 @@ def training():
     return "Training Successful!" 
 
 
-@app.route('/predict',methods=['POST','GET']) # route to show the predictions in a web UI
+@app.route('/predict', methods=['POST'])
 def index():
-    if request.method == 'POST':
-        try:
-            #  reading the inputs given by the user
-            make = object(request.form['make'])
-            model = object(request.form['model'])
-            vehicle = object(request.form['vehicle'])
-            engine_size = float(request.form['engine_size'])
-            cylinders = int(request.form['cylinders'])
-            transmission = object(request.form['transmission'])
-            fuel_type = object(request.form['fuel_type'])
-            fuel_consumption_city = float(request.form['fuel_consumption_city'])
-            fuel_consumption_hwy = float(request.form['fuel_consumption_hwy'])
-            fuel_consumption_comb_km= float(request.form['fuel_consumption_comb_km'])
-            fuel_consumption_comb_mpg = float(request.form['fuel_consumption_comb_mpg'])
-       
-         
-            data = [make,model,vehicle,engine_size,cylinders,transmission,fuel_type,fuel_consumption_city,fuel_consumption_hwy,fuel_consumption_comb_km,fuel_consumption_comb_mpg]
-            data = np.array(data).reshape(1, 11)
-            
-            obj = PredictionPipeline()
-            predict = obj.predict(data)
+    try:
+        # Read the inputs given by the user
+        Engine_Size = float(request.form['Engine Size(L)'])
+        Cylinders = int(request.form['Cylinders'])
+        Transmission_A10 = request.form['Transmission_A10']  # Assuming transmission is a string
 
-            return render_template('results.html', prediction = str(predict))
+        Transmission_A10 = 0
+        Transmission_A4 = 0
+        Transmission_A5 = 0
+        Transmission_A6 = 0
+        Transmission_A7 = 0
+        Transmission_A8 = 0
+        Transmission_A9 = 0
+        Transmission_AM5 = 0
+        Transmission_AM6 = 0
+        Transmission_AM7 = 0
+        Transmission_AM8 = 0
+        Transmission_AM9 = 1
+        Transmission_AS10 = 0
+        Transmission_AS4 = 0
+        Transmission_AS5 = 0
+        Transmission_AS6 = 0
+        Transmission_AS7 = 0
+        Transmission_AS8 = 0
+        Transmission_AS9 = 0
+        Transmission_AV = 0
+        Transmission_AV10 = 0
+        Transmission_AV6 = 0
+        Transmission_AV7 = 0
+        Transmission_AV8 = 0
+        Transmission_M5 = 0
+        Transmission_M6 = 0
+        Transmission_M7 = 0
 
-        except Exception as e:
-            print('The Exception message is: ',e)
-            return 'something is wrong'
+        Fuel_Type_D = request.form['Fuel Type_D']  # Assuming fuel_type is a string
 
-    else:
-        return render_template('index.html')
+        Fuel_Type_D = 1
+        Fuel_Type_E = 0
+        Fuel_Type_N = 0
+        Fuel_Type_X = 0
+        Fuel_Type_Z = 0
+        
+        Fuel_Consumption_City = float(request.form['Fuel Consumption City (L/100 km)'])
+        Fuel_Consumption_Hwy = float(request.form['Fuel Consumption Hwy (L/100 km)'])
+        Fuel_Consumption_Comb_KM = float(request.form['Fuel Consumption Comb (L/100 km)'])
+        Fuel_Consumption_Comb_MPG = float(request.form['Fuel Consumption Comb (mpg)'])
+   
+        data = [Engine_Size, Cylinders, Transmission_A10, Transmission_A4, Transmission_A5, Transmission_A6, Transmission_A7, Transmission_A8, Transmission_A9, Transmission_AM5, Transmission_AM6, Transmission_AM7, Transmission_AM8, Transmission_AM9, Transmission_AS10, Transmission_AS4, Transmission_AS5, Transmission_AS6, Transmission_AS7, Transmission_AS8, Transmission_AS9, Transmission_AV, Transmission_AV10, Transmission_AV6, Transmission_AV7, Transmission_AV8, Transmission_M5, Transmission_M6, Transmission_M7, Fuel_Type_D, Fuel_Type_E, Fuel_Type_N, Fuel_Type_X, Fuel_Type_Z, Fuel_Consumption_City, Fuel_Consumption_Hwy, Fuel_Consumption_Comb_KM, Fuel_Consumption_Comb_MPG]
+
+        print('checkpredictiondataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', data)
+        data = np.array(data).reshape(1, -1)  # Reshape to correct dimensions
+        print('printreshapedataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', data)
+        
+        # Assuming PredictionPipeline is correctly imported and initialized
+        obj = PredictionPipeline()
+        predict = obj.predict(data)
+
+        return render_template('results.html', prediction=str(predict))
+    
+    except Exception as e:
+        print('The Exception message is:', e)
+        return 'Something went wrong'
+
 
 
 if __name__ == "__main__":
