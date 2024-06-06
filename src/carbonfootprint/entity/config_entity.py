@@ -19,8 +19,11 @@ class ModelTrainerConfig:
     train_data_path: Path
     test_data_path: Path
     model_name: str
-    # alpha: float
-    # l1_ratio: float
+    n_estimators : int
+    max_features : str
+    max_depth : int
+    criterion : str
+    min_samples_split : int
     target_column: str
 
 @dataclass(frozen=True)

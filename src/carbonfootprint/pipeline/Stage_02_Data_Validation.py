@@ -13,16 +13,16 @@ class DataValidationPipeline:
     def validation(self):
         config = ConfigurationManager()
         data_validation_config = config.get_data_validation_config()
-        data_validation = DataValidation(config=data_validation_config)
-        data_validation.validate_all_columns()
+        validation = DataValidation(config=data_validation_config)
+        validation.validate_all_columns()
 
 
 
 if __name__ == '__main__':
     try:
         logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n")
-        pipeline = DataValidationPipeline()
-        pipeline.validation()
+        data_validation = DataValidationPipeline()
+        data_validation.validation()
         logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n\n\nx==========x")
     except Exception as e:
         logger.exception(e)

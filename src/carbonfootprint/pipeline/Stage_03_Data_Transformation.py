@@ -22,21 +22,23 @@ class DataTransformationPipeline:
             if status == "True":
                 config = ConfigurationManager()
                 data_transformation_config = config.get_data_transformation_config()
-                data_transformation = DataTransformation(config=data_transformation_config)
-                data_transformation.train_test_spliting()
-
+                transformation = DataTransformation(config=data_transformation_config)
+                transformation.catrgorical_encoding()
+                transformation.train_test_spliting()
+                scaled_x_train_arr, scaled_x_test_arr = transformation.standardization()
+                return(scaled_x_train_arr, scaled_x_test_arr)
             else:
                 raise Exception("You data schema is not valid")
 
         except Exception as e:
             print(e)
 
-
+ 
 if __name__ == '__main__':
     try:
         logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n")
-        obj = DataTransformationPipeline()
-        obj.transformation()
+        data_transformation = DataTransformationPipeline()
+        data_transformation.transformation()
         logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n\n\nx==========x")
     except Exception as e:
         logger.exception(e)

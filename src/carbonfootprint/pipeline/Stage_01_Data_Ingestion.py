@@ -10,8 +10,8 @@ class DataIngestionPipeline:
 
     def ingestion(self):
         try:
-            obj = DataIngestion()
-            raw_data_path = obj.initiate_data_ingestion()
+            injestion = DataIngestion()
+            raw_data_path = injestion.initiate_data_ingestion()
             logger.info(f"Data ingested and saved to {raw_data_path}")
         except DataIngestionException as e:
             logger.error(f"An error occurred during data ingestion: {e}")
@@ -20,8 +20,8 @@ class DataIngestionPipeline:
 if __name__ == "__main__":
     try:
         logger.info(f"++++++++++++ stage {STAGE_NAME} ++++++++++++")
-        obj = DataIngestionPipeline()
-        obj.ingestion()
+        data_injestion = DataIngestionPipeline()
+        data_injestion.ingestion()
         logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++")
     except DataIngestionException as e:
         logger.error(f"An error occurred during data ingestion: {e}")

@@ -32,7 +32,7 @@ STAGE_NAME = "Data Transformation stage"
 try:
     logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n")
     data_transformation = DataTransformationPipeline()
-    data_transformation.transformation()
+    scaled_x_train_arr, scaled_x_test_arr = data_transformation.transformation()
     logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n")
 except Exception as e:
     logger.exception(e)
@@ -41,10 +41,10 @@ except Exception as e:
 
 STAGE_NAME = "Model Trainer stage"
 try:
-   logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n") 
-   model_trainer = ModelTrainerPipeline()
-   model_trainer.trainer()
-   logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n")
+    logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n") 
+    model_trainer = ModelTrainerPipeline()
+    y_test, y_test_pred, y_train, y_train_pred = model_trainer.trainer(scaled_x_train_arr, scaled_x_test_arr)
+    logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n")
 except Exception as e:
     logger.exception(e)
     raise e
@@ -54,7 +54,7 @@ STAGE_NAME = "Model evaluation stage"
 try:
    logger.info(f"++++++++++++ stage {STAGE_NAME} started ++++++++++++\n\nx=========================================================x\n") 
    model_evaluation = ModelEvaluationPipeline()
-   model_evaluation.evaluation()
+   model_evaluation.evaluation(y_test, y_test_pred, y_train, y_train_pred)
    logger.info(f"++++++++++++ stage {STAGE_NAME} completed ++++++++++++\n\nx=========================================================x\n")
 except Exception as e:
     logger.exception(e)
