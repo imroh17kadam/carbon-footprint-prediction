@@ -30,13 +30,30 @@ class DataTransformation:
 
         columns_to_drop = ['Make', 'Model', 'Vehicle Class', 'Transmission', 'Fuel Type']
         self.df_new = self.df_new.drop(columns=columns_to_drop)
+
+        new_column_order = [
+            'Engine Size(L)', 'Cylinders',
+            'Transmission_A10', 'Transmission_A4', 'Transmission_A5', 'Transmission_A6', 'Transmission_A7', 
+            'Transmission_A8', 'Transmission_A9', 'Transmission_AM5', 'Transmission_AM6', 'Transmission_AM7', 
+            'Transmission_AM8', 'Transmission_AM9', 'Transmission_AS10', 'Transmission_AS4', 'Transmission_AS5', 
+            'Transmission_AS6', 'Transmission_AS7', 'Transmission_AS8', 'Transmission_AS9', 'Transmission_AV', 
+            'Transmission_AV10', 'Transmission_AV6', 'Transmission_AV7', 'Transmission_AV8', 'Transmission_M5', 
+            'Transmission_M6', 'Transmission_M7', 'Fuel Type_D', 'Fuel Type_E', 'Fuel Type_N', 'Fuel Type_X', 
+            'Fuel Type_Z', 'Fuel Consumption City (L/100 km)', 'Fuel Consumption Hwy (L/100 km)', 
+            'Fuel Consumption Comb (L/100 km)', 'Fuel Consumption Comb (mpg)', 'CO2 Emissions(g/km)'
+        ]
+
+        # Reorder the columns in the DataFrame
+        self.df_final = self.df_new[new_column_order]
+
         self.df_new.shape
 
 
     def train_test_spliting(self):
 
         # Split the data into training and test sets. (0.75, 0.25) split.
-        train, test = train_test_split(self.df_new)
+        # train, test = train_test_split(self.df_new)
+        train, test = train_test_split(self.df_final)
 
         train.to_csv(os.path.join(self.config.root_dir, "train.csv"),index = False)
         test.to_csv(os.path.join(self.config.root_dir, "test.csv"),index = False)
