@@ -85,7 +85,7 @@ class DataTransformation:
 
         logger.info(f"Saved preprocessing object.")
 
-        pickle.dump(sc, open('c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\carbon-footprint-prediction\\artifacts\\data_transformation\\scaling.pkl', 'wb'))
+        pickle.dump(sc, open('artifacts\data_transformation\scaling.pkl', 'wb'))
 
         print('Standardized Train Data', train_arr)
         print('Standardized Test Data', test_arr)
