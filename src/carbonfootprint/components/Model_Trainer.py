@@ -36,7 +36,7 @@ class ModelTrainer:
         y_train_pred = rf.predict(X_train)
         y_test_pred = rf.predict(X_test)
 
-        scaler = pickle.load(open('c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_transformation\\scaling.pkl', 'rb'))
+        scaler = pickle.load(open('artifacts\data_transformation\scaling.pkl', 'rb'))
 
         # print('Checksingletestdataaaaaa', X_test[1].reshape(1,-1))
         # single_pred = rf.predict(scaler.transform(X_test[1].reshape(1,-1)))

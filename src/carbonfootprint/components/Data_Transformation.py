@@ -67,8 +67,8 @@ class DataTransformation:
 
         sc = StandardScaler()
 
-        train_data = pd.read_csv('c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_transformation\\train.csv')
-        test_data = pd.read_csv('c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_transformation\\test.csv')
+        train_data = pd.read_csv('artifacts\\data_transformation\\train.csv')
+        test_data = pd.read_csv('artifacts\\data_transformation\\test.csv')
 
 
         input_feature_train_df = train_data.drop(columns=['CO2 Emissions(g/km)'], axis=1)
@@ -88,6 +88,6 @@ class DataTransformation:
         print('Standardized Train Data', train_arr)
         print('Standardized Test Data', test_arr)
 
-        pickle.dump(sc, open('c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_transformation\\scaling.pkl', 'wb'))
+        pickle.dump(sc, open('artifacts\\data_transformation\\scaling.pkl', 'wb'))
 
         return (train_arr, test_arr)

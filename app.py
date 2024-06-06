@@ -8,7 +8,7 @@ import pickle
 
 
 app = Flask(__name__) # initializing a flask app
-scaler = pickle.load(open('c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_transformation\\scaling.pkl', 'rb'))
+scaler = pickle.load(open('artifacts\data_transformation\scaling.pkl', 'rb'))
 
 
 @app.route('/',methods=['GET'])  # route to display the home page

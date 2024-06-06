@@ -14,7 +14,7 @@ class DataTransformationPipeline:
 
     def transformation(self):
         try:
-            # with open(Path("c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\artifacts\\data_validation\\status.txt"), "r") as f:
+            # with open(Path("artifacts\data_validation\status.txt"), "r") as f:
             #     status = f.read().split(" ")[-1]
 
             status = "True"

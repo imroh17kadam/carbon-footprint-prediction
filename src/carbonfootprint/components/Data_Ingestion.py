@@ -71,7 +71,7 @@ class DataIngestion:
         """
         logger.info("Entered the data ingestion method or component")
         try:
-            source_file_path = 'c:\\Users\\Admin\\Desktop\\Rohit\\MachineLearning\\ml-mlops-workflow\\src\\carbonfootprint\\dataset\\CarbonFootprintData.csv'
+            source_file_path = 'src\carbonfootprint\dataset\CarbonFootprintData.csv'
             df = self.read_data(source_file_path)
             self.save_data(df, self.ingestion_config.raw_data_path)
             logger.info("Data ingestion process completed")
