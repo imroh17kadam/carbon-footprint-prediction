@@ -88,7 +88,7 @@ class ConfigurationManager:
             all_params=params,
             metric_file_name = config.metric_file_name,
             target_column = schema.name,
-            mlflow_uri="https://dagshub.com/kadam17rohit/ml-mlops-workflow.mlflow",
+            mlflow_uri="https://github.com/imroh17kadam/carbon-footprint-prediction.git",
         )
 
         return model_evaluation_config
