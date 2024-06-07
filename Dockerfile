@@ -1,24 +1,13 @@
-# FROM python:3.9-slim-buster
+FROM python:3.9-slim-buster
 
-# RUN apt update -y && apt install awscli -y
-# WORKDIR /app
+RUN apt update -y && apt install awscli -y
+WORKDIR /app
 
-# COPY . /app
-# RUN pip install -r requirements.txt
-
-# CMD ["python3", "app.py"]
-
-
-
-FROM python:3.9
-ENV PYTHONUNBUFFERED 1
-RUN mkdir /code
-WORKDIR /code
-COPY requirements.txt /code/
+COPY . /app
 RUN pip install -r requirements.txt
-COPY . /code/
-CMD python3 app.py
-EXPOSE  8080
+
+CMD ["python3", "app.py"]
+EXPOSE 8080
 
 
 
