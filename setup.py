@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "ml-mlops-workflow"
+REPO_NAME = "carbon-footprint-prediction"
 AUTHOR_USER_NAME = "imroh17kadam"
 SRC_REPO = "carbonfootprint"
 AUTHOR_EMAIL = "kadam17rohit@gmail.com"
